@@ -4,8 +4,23 @@ let stopDetection = ""
 let minX = 0
 let maxX = 1350
 let obstacles =  [
-  {ymin:0, ymax: 200, xmin: 0, xmax: 200}, //chaises grise en haut
+  {ymin:120, ymax: 190, xmin: 60, xmax:190},
+  {ymin:170, ymax: 350, xmin: 550, xmax:670},
+  {ymin:450, ymax: 550, xmin: 170, xmax:290},
+  {ymin:70, ymax: 170, xmin: 910, xmax:1030},
+  {ymin:10, ymax: 190, xmin: 1220, xmax:1360},
+  {ymin:460, ymax: 600, xmin: 930, xmax:990},
+  {ymin:450, ymax: 510, xmin: 990, xmax:1140},
+  {ymin:510, ymax: 600, xmin: 1080, xmax:1150},
+  {ymin:-70, ymax: 670, xmin: -60, xmax:40},
+  {ymin:660, ymax: 670, xmin: 40, xmax:1450},
+  {ymin:-120, ymax: -40, xmin: 30, xmax:1450},
+  {ymin:-120, ymax: -40, xmin: -70, xmax:40},
+  {ymin:-70, ymax: 661, xmin: 1380, xmax:1450},
+
+ //chaises grise en haut
 ]
+
 
 
 let posY = 300
@@ -37,13 +52,12 @@ let deplacement = ()=> {
     "keypress",
     function(e){
       let stopDetection = 0;
-      console.log(e.keyCode)
+
 
       console.log(collaps())
       if (e.keyCode==100){
-        console.log(dir)
-        if(collaps(posX+30, posY)){
-          posX += 30
+        if(collaps(posX+1, posY)){
+          posX += 10
           perso.style.left = posX + "px"
           dir=1
           press = true
@@ -51,24 +65,24 @@ let deplacement = ()=> {
       }
       else if (e.keyCode==97){
         console.log(dir)
-        if(collaps(posX-30, posY)){
-          posX -=30
+        if(collaps(posX-1, posY)){
+          posX -=10
           perso.style.left = posX + "px"
           dir=3
           press = true
         }
        }
        else if (e.keyCode == 119){
-         if(collaps(posX, posY-30)){
-           posY -=30
+         if(collaps(posX, posY-1)){
+           posY -=10
            perso.style.top = posY + "px"
            dir=0
            press = true
          }
        }
        else if (e.keyCode==115){
-         if(collaps(posX, posY+30)){
-           posY +=30
+         if(collaps(posX, posY+1)){
+           posY +=10
            perso.style.top = posY + "px"
            dir = 2
            press = true
@@ -158,3 +172,5 @@ function collisions()
 
  setInterval(afficheElements, 5000);
  setInterval(collisions, 500);
+Fin de la discussion
+Écrivez un message, @nom...
